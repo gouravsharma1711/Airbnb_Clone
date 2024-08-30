@@ -1,0 +1,28 @@
+footer{
+    height: 6rem;
+    background-color: #ebebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Links{
+    text-decoration: none;
+    color: #222222;
+}
+.Links:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.icon{
+    font-size: x-large;
+}
+.fa-square-instagram{
+    color: #E1306C;
+}
+.fa-square-facebook{
+    color: #1877F2;
+}
+.fa-linkedin{
+    color: #0077B5;
+}
