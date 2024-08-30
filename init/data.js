@@ -106,7 +106,7 @@ const sampleListings = [
     {
         title: "Luxury Yacht in the Mediterranean",
         description: "Sail the Mediterranean in style aboard this luxurious yacht. Perfect for a glamorous getaway.",
-        image: "https://images.unsplash.com/photo-1600804610746-4f47e6baf2ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+        image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
         price: 5000,
         location: "Monaco",
         country: "Monaco",

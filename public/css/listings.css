@@ -1,0 +1,28 @@
+.ListInDb{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; /
+}
+.card-img-top{
+    max-height: 12rem;
+    
+}
+.cardLink{
+    text-decoration: none;
+    color: black;
+}
+.card{
+    height: 100% !important;
+    width: 100% !important;
+}
+@media (max-width: 1200px) {
+    .ListInDb {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .ListInDb {
+      grid-template-columns: 2fr;
+    }
+}

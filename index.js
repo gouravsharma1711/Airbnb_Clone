@@ -5,7 +5,7 @@ const path=require('path');
 const methodOverride=require('method-override');
 const ejsMate=require('ejs-mate');
 const listingModels=require('./models/listings.js');
-const { log } = require('console');
+const { log, Console } = require('console');
 
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'/views'));
@@ -31,5 +31,6 @@ app.listen(port,()=>{
 // show all listings
 app.get('/listings',async (req,res)=>{
     let listingsdata=await listingModels.find();
-    res.render('listings.ejs');
+    res.render('listings.ejs',{listingsdata});
+    
 });
