@@ -34,3 +34,9 @@ app.get('/listings',async (req,res)=>{
     res.render('listings.ejs',{listingsdata});
     
 });
+//detail view
+app.get('/listings/:id',async(req,res)=>{
+    let {id}=req.params;
+    let data=await listingModels.findById(id);
+    res.render("detailView.ejs",{data});
+});
