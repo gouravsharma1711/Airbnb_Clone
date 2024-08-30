@@ -41,3 +41,11 @@ app.get('/listings/:id',async(req,res)=>{
     res.render("detailView.ejs",{data});
 });
 
+// delete listings
+
+app.delete('/listings/:id',async(req,res)=>{
+    let {id}=req.params;
+    await listingModels.findByIdAndDelete(id);
+    res.redirect('/listings');
+});
+
