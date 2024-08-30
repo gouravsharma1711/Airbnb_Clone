@@ -40,3 +40,4 @@ app.get('/listings/:id',async(req,res)=>{
     let data=await listingModels.findById(id);
     res.render("detailView.ejs",{data});
 });
+

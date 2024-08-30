@@ -1,0 +1,28 @@
+.upperContainer{
+    display: flex;
+    justify-content: center;
+}
+.card{
+    max-width: 40rem;
+}
+.ListingDescription{
+    text-align: left;
+}
+.buttons{
+    display: flex;
+    gap: 1rem;
+}
+.DetailButton{
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+}
+.b1{
+    background-color: #fe424d;
+}
+.b2{
+    background-color: #0d6efd;
+}

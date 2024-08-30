@@ -1,12 +1,26 @@
 <%- layout('./layout/boilerPlate.ejs') %>
 <h2>Listing Details</h2>
 <body>
-    <div class="card mb-3">
-        <img src=<%= data.image %> class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"></h5>
-          <p class="card-text"></p>
-          <p class="card-text"><small class="text-body-secondary"></small></p>
-        </div>
-      </div>
+    <div class="upperContainer">
+        <div class="card mb-3">
+            <img src=<%= data.image %> class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= data.title %> </h5>
+              <p class="card-text ListingDescription"><%= data.description %> </p>
+              <p class="card-text"><small class="text-body-secondary">&#8377; <%= data.price %>/Night </small></p>
+              <p class="location"><b><%= data.location %>,<%= data.country %></b></p>
+              <div class="buttons">
+                <form method="post" action="/listings/<%= data._id%>?_method=DELETE">
+                    <button class="b1 DetailButton DeleteListings">Delete Listing</button>
+                </form>
+                <button class="b2 DetailButton EditListings">Edit Listing</button>
+              </div>
+            </div>
+          </div>
+    </div>
 </body>
+<script>
+    document.querySelector('.b2').addEventListener('click',()=>{
+        window.location.href='/listings/edit';
+    });
+</script>
