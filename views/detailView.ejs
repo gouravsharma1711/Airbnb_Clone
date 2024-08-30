@@ -13,14 +13,11 @@
                 <form method="post" action="/listings/<%= data._id%>?_method=DELETE">
                     <button class="b1 DetailButton DeleteListings">Delete Listing</button>
                 </form>
-                <button class="b2 DetailButton EditListings">Edit Listing</button>
+                <a href="/listing/edit/<%= data._id%>">
+                  <button class="b2 DetailButton EditListings">Edit Listing</button>
+                </a>
               </div>
             </div>
           </div>
     </div>
 </body>
-<script>
-    document.querySelector('.b2').addEventListener('click',()=>{
-        window.location.href='/listings/edit';
-    });
-</script>

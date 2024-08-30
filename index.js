@@ -49,3 +49,10 @@ app.delete('/listings/:id',async(req,res)=>{
     res.redirect('/listings');
 });
 
+// edit
+app.get('/listing/edit/:id',async(req,res)=>{
+    let {id}=req.params;
+    let data=await listingModels.findById(id);
+    res.render('edit.ejs');
+});
+
