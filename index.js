@@ -53,6 +53,13 @@ app.delete('/listings/:id',async(req,res)=>{
 app.get('/listings/edit/:id',async(req,res)=>{
     let {id}=req.params;
     let data=await listingModels.findById(id);
-    res.render('edit.ejs');
+    res.render('edit.ejs',{data});
 });
 
+// update
+app.post('/listings/edit/:id',async(req,res)=>{
+    let {id}=req.params;
+    let updatedData=req.body;
+    await listingModels.findByIdAndUpdate(id,updatedData);
+    res.redirect('/listings');
+});
