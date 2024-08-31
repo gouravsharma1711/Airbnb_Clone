@@ -1,0 +1,35 @@
+<%- layout('./layout/boilerPlate.ejs') %>
+<body>
+    <h2>Create a New Listing</h2>
+    <form method="post" action="/listings/create" class="row g-3">
+        <div class="col-md-6">
+          <label for="inoutTitle" class="form-label" >Title</label>
+          <input type="text" name="title"  class="form-control" id="inoutTitle" value="" placeholder="e.g., Cozy Cottage in the Heart of the City" >
+        </div>
+        <div class="col-md-6">
+          <label for="inputPrice" class="form-label">Price(&#8377;)</label>
+          <input type="text" name="price" class="form-control" id="inputPrice" placeholder="&#8377; 1200">
+        </div>
+        <div class="col-12">
+          <label for="inputImageUrl" class="form-label">Image Url</label>
+          <input type="text" name="image" class="form-control" id="inputImageUrl" placeholder="Image Url">
+        </div>
+        <div class="col-12">
+          <label for="inputDescription" class="form-label">Description</label>
+          <input type="text" name="description" class="form-control" id="inputDescription" placeholder="e.g., A charming 2-bedroom cottage with modern amenities and a private garden."  value="" >
+        </div>
+        <div class="col-md-6">
+          <label for="inputLocation" class="form-label">Location</label>
+          <input type="text" name="location" class="form-control" id="inputLocation" placeholder="e.g., Delhi">
+        </div>
+        <div class="col-md-4">
+          <label for="inputCountry" class="form-label">Country</label>
+          <input type="text" name="country" class="form-control" id="inputCountry" placeholder="e.g., India">
+        </div>
+        <div class="col-12">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form>
+</body>

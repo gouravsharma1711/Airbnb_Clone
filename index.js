@@ -23,16 +23,29 @@ async function main() {
     await mongoose.connect('mongodb://127.0.0.1:27017/AirbnbDataBase');
 }
 
-const port=3000;
-app.listen(port,()=>{
-    console.log("Server Starts successfully");
-});
 
 // show all listings
 app.get('/listings',async (req,res)=>{
     let listingsdata=await listingModels.find();
+    if(listingsdata.length===0){
+        res.render('noContent.ejs');
+    }else{
     res.render('listings.ejs',{listingsdata});
+    }    
+});
+// add listings
+app.get('/listings/create',(req,res)=>{
+    res.render("add.ejs");
+});
+//add listing to db
+app.post('/listings/create',(req,res)=>{
+    let data=req.body;
+    const newlisting=new listingModels(data);
+    newlisting.save()
+    .then((result)=>console.log(result))
+    .catch((err)=>console.log(err));
     
+    res.redirect('/listings');
 });
 //detail view
 app.get('/listings/:id',async(req,res)=>{
@@ -62,4 +75,21 @@ app.post('/listings/edit/:id',async(req,res)=>{
     let updatedData=req.body;
     await listingModels.findByIdAndUpdate(id,updatedData);
     res.redirect('/listings');
+});
+//privacy 
+app.get("/wanderlust/privacy",(req,res)=>{
+    res.render("privacy.ejs");
+});
+//terms 
+app.get("/wanderlust/terms",(req,res)=>{
+    res.render("terms.ejs");
+});
+app.use('*', (req, res) => {
+    res.render('pageNotFound.ejs');
+});
+
+
+const port=3000;
+app.listen(port,()=>{
+    console.log("Server Starts successfully");
 });

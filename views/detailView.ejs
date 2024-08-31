@@ -3,12 +3,12 @@
 <body>
     <div class="upperContainer">
         <div class="card mb-3">
-            <img src=<%= data.image %> class="card-img-top" alt="...">
+            <img src=<%= data.image %> class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title"><%= data.title %> </h5>
+              <h4 class="card-title" ><%= data.title %> </h4>
               <p class="card-text ListingDescription"><%= data.description %> </p>
-              <p class="card-text"><small class="text-body-secondary">&#8377; <%= data.price %>/Night </small></p>
-              <p class="location"><b><%= data.location %>,<%= data.country %></b></p>
+              <p class="card-text"><small class="text-body-secondary">&#8377; <%= new Intl.NumberFormat('en-IN').format(data.price) %>/Night </small></p>
+              <p class="location"><b><%= data.location %> , <%= data.country %></b></p>
               <div class="buttons">
                 <form method="post" action="/listings/<%= data._id%>?_method=DELETE">
                     <button class="b1 DetailButton DeleteListings">Delete Listing</button>

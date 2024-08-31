@@ -1,0 +1,9 @@
+.PagNotFoundUpperDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pageNotFoundImage{
+    height: 40%;
+    width: 40%;
+}

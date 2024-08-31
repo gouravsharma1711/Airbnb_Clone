@@ -7,7 +7,7 @@
             <img src="<%= list.image %>" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title"><%= list.title %></h5>
-              <p class="card-text">&#8377; <%= list.price %>/Night</p>
+              <p class="card-text">&#8377; <%= new Intl.NumberFormat('en-IN').format(list.price) %>/Night</p>
             </div>
           </div>
       </a>
