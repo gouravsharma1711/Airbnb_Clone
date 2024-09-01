@@ -1,0 +1,134 @@
+.searchByCityName{
+    display: flex;
+    flex-direction: column;
+    padding:0 5px 0 5px ;
+    gap: 1rem;
+    align-items: center;
+    height: 25rem;
+    border-radius: 10px;
+    background-image: url(https://res.cloudinary.com/dcs7eq5kf/image/upload/q_50/v1725223600/night_mbss6q.jpg);
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    padding-top: 1rem;
+}
+.HometextContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* border: 2px solid white; */
+}
+.Text{
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-size: xx-large;
+}
+
+
+.SearchForm{
+    min-width: 70%;
+    display: flex;
+    gap: 5px !important;
+    height: 2.5rem;
+    border-radius: 20px;
+    
+}
+.inputSearch{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    border-radius: 20px;
+    width: 90%;
+    background-color: white;
+    outline: none;
+    border: none;
+    color: black;
+    padding: 20px;
+    font-size: large;
+    border: 1px solid gray;
+}
+.inputSearch:focus{
+    border-color: #00f;
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.6);
+    outline: none;
+}
+.searchButton{
+    border-radius: 40px;
+    width: 3rem;
+    color: white;
+    background-color: orangered;
+    border: none;
+    font-weight: 600;
+    font-size: large;
+}
+
+.homeToListingButton{
+    padding: 2px 20px 2px 20px;
+    font-size: x-large;
+    background-color: orangered;
+    border-radius: 20px;
+    font-weight: 600;
+    border: none;
+    color: white;
+    
+}
+.scroll-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    overflow: hidden;
+}
+
+.allHomeCards {
+
+    display: flex;
+    gap: 0.5rem;
+    width: 200% !important;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+.HomeCard {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    overflow: hidden;
+    border-radius: 15px;
+    flex-shrink: 0; 
+}
+
+.Homecard-img-top {
+    width: 100%;
+    height: 100%;
+}
+
+.HomeCard-text {
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; 
+    opacity: 0; 
+    transition: all 1s ease; 
+    height: 10rem;
+    width: 10rem;
+}
+
+.HomeCard:hover .HomeCard-text {
+    opacity: 1;
+}
+
+
+
+@media screen and (max-width:445px) {
+    .Text{
+        font-size:x-large;
+    }
+}

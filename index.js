@@ -84,6 +84,28 @@ app.get("/wanderlust/privacy",(req,res)=>{
 app.get("/wanderlust/terms",(req,res)=>{
     res.render("terms.ejs");
 });
+// home
+app.get('/home',(req,res)=>{
+    res.render("home.ejs")
+})
+// search by city Name
+app.get('/listing/:cityName',async(req,res)=>{
+    let {cityName}=req.params
+    // first letter capital
+    function capitalizeFirstLetter(str) {
+        if (str.length === 0) return str; // Return the empty string if input is empty
+    
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+    cityName=capitalizeFirstLetter(cityName);
+    let listingsdata=await listingModels.find({location:cityName});
+    if(listingsdata.length===0){
+        res.render('noContent.ejs');
+    }else{
+    res.render('searchResult.ejs',{cityName,listingsdata});
+    }
+})
+
 app.use('*', (req, res) => {
     res.render('pageNotFound.ejs');
 });

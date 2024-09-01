@@ -1,0 +1,17 @@
+<%- layout('./layout/boilerPlate.ejs') %>
+
+<h2>Listings  of City <%= cityName %></h2>
+<br>
+<div class="ListInDb">
+      <% listingsdata.forEach((list)=>{ %>
+      <a class="cardLink" href="/listings/<%= list._id %>">
+        <div class="card" style="width: 18rem;">
+            <img src="<%= list.image %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= list.title %></h5>
+              <p class="card-text">&#8377; <%= new Intl.NumberFormat('en-IN').format(list.price) %>/Night</p>
+            </div>
+          </div>
+      </a>
+      <% })%>
+</div>

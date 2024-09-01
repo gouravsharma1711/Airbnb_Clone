@@ -1,0 +1,94 @@
+<%- layout('./layout/boilerPlate.ejs') %>
+<body>
+    <br>
+    <div class="searchByCityName">
+        <form class="SearchForm" method="get" >
+            <input required class="inputSearch" type="text" name="cityName" placeholder="City Name">
+            <button class="searchButton" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div class="HometextContainer">
+            <p class="Text">Spend Quality Holidays<br>with Us Anytime, Anywhere</p>
+        </div>
+        <a href="/listings"><button class="homeToListingButton">Explore Listings</button></a>
+    </div>
+    <br>
+    <h3>Top Suggestions</h3>
+    <br>
+    <div class="scroll-container">
+        <div class="allHomeCards">
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223776/kokata_ab3qhc.jpg" class="Homecard-img-top" alt="...">
+                <p id="Kolkata" class="HomeCard-text">Kolkata</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223778/mumbai_t0bb1d.jpg" class="Homecard-img-top" alt="...">
+                <p id="Mumbai" class="HomeCard-text">Mumbai</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223777/bangalore_lzouhm.jpg" class="Homecard-img-top" alt="...">
+                <p id="Bengaluru" class="HomeCard-text">Bengaluru</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223775/indiaGate_ztctom.jpg" class="Homecard-img-top" alt="...">
+                <p id="Delhi" class="HomeCard-text">Delhi</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223777/Shimla_wz7yxf.jpg" class="Homecard-img-top" alt="...">
+                <p id="Shimla" class="HomeCard-text">Shimla</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223777/goa_fg6ztv.jpg" class="Homecard-img-top" alt="...">
+                <p id="Goa" class="HomeCard-text">Goa</p>
+            </div>
+            <div class="HomeCard">
+                <img src='https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223780/ladakh_deftbc.jpg' class="Homecard-img-top" alt="...">
+                <p id="Ladakh" class="HomeCard-text">Ladakh</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223776/rj_pyqtqx.jpg" class="Homecard-img-top" alt="...">
+                <p id="Rajasthan" class="HomeCard-text">Rajasthan</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223773/gj_y0iv1i.jpg" class="Homecard-img-top" alt="...">
+                <p id="Gujarat" class="HomeCard-text">Gujarat</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223776/kokata_ab3qhc.jpg" class="Homecard-img-top" alt="...">
+                <p id="Kolkata" class="HomeCard-text">Kolkata</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223778/mumbai_t0bb1d.jpg" class="Homecard-img-top" alt="...">
+                <p id="Mumbai" class="HomeCard-text">Mumbai</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223777/bangalore_lzouhm.jpg" class="Homecard-img-top" alt="...">
+                <p id="Bengaluru" class="HomeCard-text">Bengaluru</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223775/indiaGate_ztctom.jpg" class="Homecard-img-top" alt="...">
+                <p id="Delhi" class="HomeCard-text">Delhi</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223777/Shimla_wz7yxf.jpg" class="Homecard-img-top" alt="...">
+                <p id="Shimla" class="HomeCard-text">Shimla</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223777/goa_fg6ztv.jpg" class="Homecard-img-top" alt="...">
+                <p id="Goa" class="HomeCard-text">Goa</p>
+            </div>
+            <div class="HomeCard">
+                <img src='https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223780/ladakh_deftbc.jpg' class="Homecard-img-top" alt="...">
+                <p id="Ladakh" class="HomeCard-text">Ladakh</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223776/rj_pyqtqx.jpg" class="Homecard-img-top" alt="...">
+                <p id="Rajasthan" class="HomeCard-text">Rajasthan</p>
+            </div>
+            <div class="HomeCard">
+                <img src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_30/v1725223773/gj_y0iv1i.jpg" class="Homecard-img-top" alt="...">
+                <p id="Gujarat" class="HomeCard-text">Gujarat</p>
+            </div>
+            
+        </div>
+    </div>
+    <script src="./js/home.js"></script>
