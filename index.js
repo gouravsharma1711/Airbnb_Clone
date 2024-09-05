@@ -6,6 +6,12 @@ const methodOverride=require('method-override');
 const ejsMate=require('ejs-mate');
 const listingModels=require('./models/listings.js');
 const { log, Console } = require('console');
+const wrapperAsync=require("./utils/wrapperAsync.js");
+const ExpressError=require("./utils/expressError.js");
+const {ValidateSchema}=require("./utils/validSchema.js");
+
+
+
 
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'/views'));
@@ -24,58 +30,65 @@ async function main() {
 }
 
 
+const validateListings=(req,res,next)=>{
+    let {error}=ValidateSchema.validate(req.body);
+    if(error){
+        throw new ExpressError(400,error.message);
+    }else{
+        next();
+    }
+}
+
 // show all listings
-app.get('/listings',async (req,res)=>{
+app.get('/listings',wrapperAsync( async (req,res)=>{
     let listingsdata=await listingModels.find();
     if(listingsdata.length===0){
         res.render('noContent.ejs');
     }else{
     res.render('listings.ejs',{listingsdata});
     }    
-});
+}));
 // add listings
 app.get('/listings/create',(req,res)=>{
     res.render("add.ejs");
 });
 //add listing to db
-app.post('/listings/create',(req,res)=>{
+app.post('/listings/create',validateListings,wrapperAsync(async(req,res)=>{
     let data=req.body;
     const newlisting=new listingModels(data);
-    newlisting.save()
-    .then((result)=>console.log(result))
-    .catch((err)=>console.log(err));
-    
+    await newlisting.save();
     res.redirect('/listings');
-});
+}));
 //detail view
-app.get('/listings/:id',async(req,res)=>{
+app.get('/listings/:id',wrapperAsync(async(req,res)=>{
     let {id}=req.params;
     let data=await listingModels.findById(id);
     res.render("detailView.ejs",{data});
-});
+}));
 
 // delete listings
 
-app.delete('/listings/:id',async(req,res)=>{
+app.delete('/listings/:id',wrapperAsync(async(req,res)=>{
     let {id}=req.params;
     await listingModels.findByIdAndDelete(id);
     res.redirect('/listings');
-});
+}));
 
 // edit
-app.get('/listings/edit/:id',async(req,res)=>{
+app.get('/listings/edit/:id',wrapperAsync(async(req,res)=>{
     let {id}=req.params;
     let data=await listingModels.findById(id);
     res.render('edit.ejs',{data});
-});
+}));
 
 // update
-app.post('/listings/edit/:id',async(req,res)=>{
+app.post('/listings/edit/:id',validateListings,wrapperAsync(async(req,res)=>{
+    
     let {id}=req.params;
     let updatedData=req.body;
     await listingModels.findByIdAndUpdate(id,updatedData);
-    res.redirect('/listings');
-});
+    res.redirect(`/listings/${id}`);
+}));
 //privacy 
 app.get("/wanderlust/privacy",(req,res)=>{
     res.render("privacy.ejs");
@@ -89,9 +102,8 @@ app.get('/home',(req,res)=>{
     res.render("home.ejs")
 })
 // search by city Name
-app.get('/listing/:cityName',async(req,res)=>{
+app.get('/listing/:cityName',wrapperAsync(async(req,res)=>{
     let {cityName}=req.params
-    // first letter capital
     function capitalizeFirstLetter(str) {
         if (str.length === 0) return str; // Return the empty string if input is empty
     
@@ -104,12 +116,20 @@ app.get('/listing/:cityName',async(req,res)=>{
     }else{
     res.render('searchResult.ejs',{cityName,listingsdata});
     }
-})
+}));
 
-app.use('*', (req, res) => {
-    res.render('pageNotFound.ejs');
+app.all('*', (req, res,next) => {
+    next(new ExpressError(404,"Page Not Found"));
 });
 
+app.use((err,req,res,next)=>{
+    let {status=500,message="Something Went Wrong"}=err;
+    if(status===404){
+        res.status(404).render('pageNotFound.ejs');
+    }else{
+        res.status(status).send(message);
+    }
+});
 
 const port=3000;
 app.listen(port,()=>{

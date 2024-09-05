@@ -7,10 +7,14 @@
         <div class="col-md-6">
           <label for="inoutTitle" class="form-label" >Title</label>
           <input type="text" name="title"  class="form-control" id="inoutTitle" value="<%= data.title %>" placeholder="e.g., Cozy Cottage in the Heart of the City" required>
+          <div class="valid-feedback">title looks good !</div>
+          <div class="invalid-feedback">Title Should be Valid</div>
         </div>
         <div class="col-md-6">
           <label for="inputPrice" class="form-label">Price(&#8377;)</label>
           <input type="text" name="price" class="form-control" id="inputPrice" placeholder="&#8377; 1200"  value="<%= data.price %>" required>
+          <div class="valid-feedback">Price looks good !</div>
+          <div class="invalid-feedback">Price Should be Valid</div>
         </div>
         <div class="col-12">
           <label for="inputImageUrl" class="form-label">Image Url</label>
@@ -19,14 +23,20 @@
         <div class="col-12">
           <label for="inputDescription" class="form-label">Description</label>
           <input type="text" name="description" class="form-control" id="inputDescription" placeholder="e.g., A charming 2-bedroom cottage with modern amenities and a private garden."  value="<%= data.description %>" required>
+          <div class="valid-feedback">Description looks good !</div>
+          <div class="invalid-feedback">Please Enter Short Description</div>
         </div>
         <div class="col-md-6">
           <label for="inputLocation" class="form-label">Location</label>
           <input type="text" name="location" class="form-control" id="inputLocation" placeholder="e.g., Delhi"  value="<%= data.location %>" required>
+          <div class="valid-feedback">Location looks good !</div>
+          <div class="invalid-feedback">Location Should be Valid</div>
         </div>
         <div class="col-md-4">
           <label for="inputCountry" class="form-label">Country</label>
           <input type="text" name="country" class="form-control" id="inputCountry" placeholder="e.g., India"  value="<%= data.country %>" required>
+          <div class="valid-feedback">Country looks good !</div>
+          <div class="invalid-feedback">Country Name Should be Valid</div>
         </div>
         <div class="col-12">
         </div>
