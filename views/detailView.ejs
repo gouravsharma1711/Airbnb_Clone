@@ -1,23 +1,67 @@
 <%- layout('./layout/boilerPlate.ejs') %>
+<br>
 <h2>Listing Details</h2>
-<body>
-    <div class="upperContainer">
-        <div class="card mb-3">
-            <img src=<%= data.image %> class="card-img-top">
-            <div class="card-body">
-              <h4 class="card-title" ><%= data.title %> </h4>
-              <p class="card-text ListingDescription"><%= data.description %> </p>
-              <p class="card-text"><small class="text-body-secondary">&#8377; <%= new Intl.NumberFormat('en-IN').format(data.price) %>/Night </small></p>
-              <p class="location"><b><%= data.location %> , <%= data.country %></b></p>
-              <div class="buttons">
+<body class="detailViewBody">
+  <div class="upperContainer" >
+          <div class="DetailViewImage">
+            <img src=<%= data.image %> class="cardImageLeft">
+          </div>
+
+          <div class="detailViewContent">
+              <h4 class="mb-3 mt-3 card-title" ><%= data.title %> </h4>
+              <p id="mb-3 mt-3 detailViewDescription"><%= data.description %> </p>
+              <p class="mb-3 mt-3 card-text Price">&#8377; <%= new Intl.NumberFormat('en-IN').format(data.price) %>/Night</p>
+              <p class="mb-3 mt-3 location"><b><%= data.location %> , <%= data.country %></b></p>
+              <div class="buttons mb-3 mt-3">
                 <form method="post" action="/listings/<%= data._id%>?_method=DELETE">
-                    <button class="b1 DetailButton DeleteListings">Delete Listing</button>
+                    <button class="b1 DetailButton">Delete Listing</button>
                 </form>
                 <a href="/listings/edit/<%= data._id%>">
-                  <button class="b2 DetailButton EditListings">Edit Listing</button>
+                  <button class="b2 DetailButton">Edit Listing</button>
                 </a>
               </div>
-            </div>
           </div>
-    </div>
+  </div>
+  <br>
+  <hr>
+  
+  <div class="review">
+    <h4>Leave a Review</h4>
+    <form method="post"  action="/listings/<%= data._id %>/review" class="needs-validation" novalidate>
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="reviewRating">Rating</label>
+        <input  type="range" id="reviewRating" name="rating" max="5" min="1" style="width: 100%;" required>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="reviewComment" class="form-label">Comments</label>
+        <textarea class="form-control" name="comment" id="reviewComment" cols="20" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-outline-dark" style="background-color: #0d6efd; color: white;">Submit</button>
+    </form>
+  </div>
+  <hr>
+  <h4>All Reviews</h4>
+  <div class="allReviewCard">
+    <%data.review.forEach((e)=>{%>
+      <div class="reviewCard">
+        <div class="userNameAndProfile flexRow">
+          <img class="ProfileImageForCard" src="/Images/profile.jpg">
+          <p class="UserNameInReviewCard">UserName123</p>
+        </div>
+        <div class="ratingAndDateOfPost flexRow">
+          <p class="ratingInReviewCard"><%=e.rating%> Star</p>
+          <p class="DateOfPost"><%=(new Date(e.currentDate)).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })%></p>
+        </div>
+        <p class="commentInReviewCard"><%=e.comment%></p>
+        <form method="post" action="/listings/<%= data._id %>/review/<%=e._id%>?_method=DELETE"">
+          <button class="b2 DetailButton" >Delete Review</button>
+        </form>
+      </div>
+    <%})%>
+
+  </div> 
 </body>
+
+<script src="/js/edit.js"></script>

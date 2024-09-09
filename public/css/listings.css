@@ -11,9 +11,63 @@
     text-decoration: none;
     color: black;
 }
-.card{
+#listingsCard{
     height: 100% !important;
     width: 100% !important;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#randomdiv{
+  overflow: hidden;
+}
+#allListingsImages{
+  transition: all 1s ease;
+}
+#listingsCard:hover #allListingsImages {
+    transform: scale(1.2);
+}
+#listingsCard:hover{
+  border: 2px solid blue;
+}
+.pagesList{
+  width: 100%;
+  height: 2.5rem;
+  gap:1rem;
+  display: flex;
+  flex-direction: row;
+}
+.previousAndNext{
+  border: 1px solid black;
+  
+  width: 8rem;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #0d6efd;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: larger;
+  font-weight: 600;
+  text-decoration: none;
+}
+.pagesNumbersDiv{
+  display: flex;
+  height: 100%;
+  gap: 0.5rem;
+}
+.eachPage{
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 100%;
+  font-size: larger;
+  flex-shrink: 0;
+  cursor: pointer;
+  font-weight: 600;
 }
 @media (max-width: 1200px) {
     .ListInDb {
@@ -25,4 +79,9 @@
     .ListInDb {
       grid-template-columns: 2fr;
     }
+}
+@media (max-width: 540px) {
+  .pagesNumbersDiv{
+    display: none;
+  }
 }

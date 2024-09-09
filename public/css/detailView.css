@@ -1,28 +1,94 @@
 .upperContainer{
+    overflow: hidden;
     display: flex;
+    flex-direction: row;
+    gap: 1rem;
     justify-content: center;
 }
-.card{
-    max-width: 40rem;
+.DetailViewImage{
+    width: 40%;
+    max-height:25rem;
+    overflow: hidden;
+    border-radius: 1rem;
 }
-.ListingDescription{
-    text-align: left;
+.cardImageLeft{
+    height: 100%;
+    width: 100%;
+}
+.detailViewContent{
+    
+    width: 60%;
+}
+.Price{
+    font-size: medium;
+    font-weight: 600;
+    color: rgb(82, 79, 79);
 }
 .buttons{
+    width: 22rem;
     display: flex;
     gap: 1rem;
 }
 .DetailButton{
     width: 10rem;
     height: 2rem;
-    border: none;
     border-radius: 5px;
+    border: none;
     color: white;
+    font-size: large;
     font-weight: 600;
 }
 .b1{
-    background-color: #fe424d;
+    background-color: #0d6efd;
 }
 .b2{
-    background-color: #0d6efd;
+    background-color: red;
+}
+.allReviewCard{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2rem; 
+    padding: 1rem;
+}
+.reviewCard{
+    border-radius: 5px ;
+    display: flex;
+    gap: 0.1rem;
+    flex-direction: column;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 0.5rem;
+
+}
+.ProfileImageForCard{
+    height: 2.2rem;
+    width: 2.2rem;
+    border: 1px solid black;
+    border-radius: 10rem;
+}
+.UserNameInReviewCard{
+    font-size: larger;
+    font-weight: 600;
+}
+.flexRow{
+    display: flex;
+    gap: 0.5rem;
+}
+@media screen and (max-width:774px) {
+    .upperContainer{
+        flex-direction: column;
+    }
+    .detailViewContent{
+        font-size: small;
+        width: 100%;
+    }
+    .DetailViewImage{
+        width: 100%;
+        height: 17rem;
+    }
+    .buttons{
+        flex-direction: column;
+    }
+    .allReviewCard {
+        grid-template-columns: 1fr;
+      }
 }

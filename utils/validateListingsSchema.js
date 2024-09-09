@@ -8,3 +8,4 @@ module.exports.ValidateSchema =joi.object({
         price:joi.number().min(0).required(),
         image:joi.string().allow("",null)
 });
+

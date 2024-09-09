@@ -1,15 +1,52 @@
 <%- layout('./layout/boilerPlate.ejs') %>
+<br>
 <h2>All Listings </h2>
 <div class="ListInDb">
-      <% listingsdata.forEach((list)=>{ %>
-      <a class="cardLink" href="/listings/<%= list._id %>">
-        <div class="card" style="width: 18rem;">
-            <img src="<%= list.image %>" class="card-img-top" alt="...">
+  
+      <% for(let i= si;i<ei && i<listingsdata.length;i++){ %>
+      <a class="cardLink" href="/listings/<%= listingsdata[i]._id %>">
+        <div class="card" id="listingsCard" style="width: 18rem;">
+            <div id="randomdiv">
+              <img id="allListingsImages" src="<%= `${listingsdata[i].image}?q_auto,f_auto` %>" 
+                srcset="<%= `${listingsdata[i].image}?q_auto,f_auto,w_400` %> 400w, 
+             <%= `${listingsdata[i].image}?q_auto,f_auto,w_800` %> 800w" 
+              sizes="(max-width: 600px) 400px, 800px" 
+               loading="lazy" 
+              class="card-img-top">
+            </div>
             <div class="card-body">
-              <h5 class="card-title"><%= list.title %></h5>
-              <p class="card-text">&#8377; <%= new Intl.NumberFormat('en-IN').format(list.price) %>/Night</p>
+              <h5 class="card-title"><%= listingsdata[i].title %></h5>
+              <p class="card-text">&#8377; <%= new Intl.NumberFormat('en-IN').format(listingsdata[i].price) %>/Night</p>
             </div>
           </div>
       </a>
-      <% })%>
+      <% }%>
+      
 </div>
+<br>
+<div class="pagesList">
+
+  <%if(pageNo>1){%>
+  <a class="previousAndNext " href="/listings/page/<%=pageNo-1%>">
+    <div class="innerTextInButtons"><i class="fa-solid fa-arrow-left"></i> Previous</div>
+  </a>
+  <%}%>
+
+  <div class="pagesNumbersDiv" id="pageNumbers">
+        <% for(let i=1;i<=numberOfPages && i<=numberOfPages;i++) {%>
+          <div class="eachPage"><%=i%></div>
+        <%}%>
+    </div>
+    
+    <%if(pageNo<numberOfPages){%>
+      <a class="previousAndNext " href="/listings/page/<%=Number(pageNo)+1%>">
+        <div class="innerTextInButtons">Next <i class="fa-solid fa-arrow-right"></i></div>
+      </a>
+      <%}%>
+ </div>
+ <script>
+  document.querySelector("#pageNumbers").addEventListener('click',(e)=>{
+      let currentPage=e.target.innerText;
+      window.location.href=`/listings/page/${currentPage}`
+  });
+ </script>
