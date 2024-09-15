@@ -20,7 +20,6 @@
       
 </div>
 <br>
-<%if(pageNo>1){%>
 <div class="pagesList">
 
   <%if(pageNo>1){%>
@@ -41,7 +40,6 @@
       </a>
       <%}%>
  </div>
- <%}%>
  <script>
   document.querySelector("#pageNumbers").addEventListener('click',(e)=>{
       let currentPage=e.target.innerText;
