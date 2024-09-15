@@ -12,7 +12,11 @@ let listingModule=require("../models/listings.js");
 
 async function inertData(){
     await listingModule.deleteMany({});
+    mydata.data=mydata.data.map((obj)=>{
+        return {...obj,owner:"66e5efca18ae13344b11c3de"}
+    })
     await listingModule.insertMany(mydata.data);
+
     console.log("Data is inserted successfully :)");
 }
 inertData();

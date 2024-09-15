@@ -4,22 +4,26 @@
 <body class="detailViewBody">
   <div class="upperContainer" >
           <div class="DetailViewImage">
-            <img src=<%= data.image %> class="cardImageLeft">
+            <img src=<%= data.image.url %> class="cardImageLeft">
           </div>
 
           <div class="detailViewContent">
+              <p><i>Created by <%=data.owner.username%></i></p>
               <h4 class="mb-3 mt-3 card-title" ><%= data.title %> </h4>
               <p id="mb-3 mt-3 detailViewDescription"><%= data.description %> </p>
               <p class="mb-3 mt-3 card-text Price">&#8377; <%= new Intl.NumberFormat('en-IN').format(data.price) %>/Night</p>
               <p class="mb-3 mt-3 location"><b><%= data.location %> , <%= data.country %></b></p>
-              <div class="buttons mb-3 mt-3">
-                <form method="post" action="/listings/<%= data._id%>?_method=DELETE">
+
+              <% if (currUser && data.owner && currUser._id && currUser._id.equals(data.owner._id)) { %>
+                <div class="buttons mb-3 mt-3">
+                  <form method="post" action="/listings/<%= data._id%>?_method=DELETE">
                     <button class="b1 DetailButton">Delete Listing</button>
-                </form>
-                <a href="/listings/edit/<%= data._id%>">
-                  <button class="b2 DetailButton">Edit Listing</button>
-                </a>
-              </div>
+                  </form>
+                  <a href="/listings/edit/<%= data._id%>">
+                    <button class="b2 DetailButton">Edit Listing</button>
+                  </a>
+                </div>
+              <% } %>
           </div>
   </div>
   <br>
@@ -30,7 +34,27 @@
     <form method="post"  action="/listings/<%= data._id %>/review" class="needs-validation" novalidate>
       <div class="mb-3 mt-3">
         <label class="form-label" for="reviewRating">Rating</label>
-        <input  type="range" id="reviewRating" name="rating" max="5" min="1" style="width: 100%;" required>
+
+        <fieldset class="starability-slot">
+          <input type="radio" id="no-rate-slot" class="input-no-rate" name="rating" value="1" checked="" aria-label="No rating.">
+    
+          <input type="radio" id="slot-rate1" name="rating" value="1">
+          <label for="slot-rate1" title="Terrible">1 star</label>
+    
+          <input type="radio" id="slot-rate2" name="rating" value="2">
+          <label for="slot-rate2" title="Not good">2 stars</label>
+    
+          <input type="radio" id="slot-rate3" name="rating" value="3">
+          <label for="slot-rate3" title="Average">3 stars</label>
+    
+          <input type="radio" id="slot-rate4" name="rating" value="4">
+          <label for="slot-rate4" title="Very good">4 stars</label>
+    
+          <input type="radio" id="slot-rate5" name="rating" value="5">
+          <label for="slot-rate5" title="Amazing">5 stars</label>
+    
+          <span class="starability-focus-ring"></span>
+        </fieldset>
       </div>
 
       <div class="mb-3 mt-3">
@@ -47,17 +71,21 @@
     <%data.review.forEach((e)=>{%>
       <div class="reviewCard">
         <div class="userNameAndProfile flexRow">
-          <img class="ProfileImageForCard" src="/Images/profile.jpg">
-          <p class="UserNameInReviewCard">UserName123</p>
+          <img class="ProfileImageForCard" src="<%=e.owner.profilePic.url%>">
+          <div class="userNameAndDate">
+            <p class="UserNameInReviewCard"><%=e.owner.username%></p>
+            <p class="DateOfPost"><%=(new Date(e.currentDate)).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })%></p>
+          </div>
         </div>
-        <div class="ratingAndDateOfPost flexRow">
-          <p class="ratingInReviewCard"><%=e.rating%> Star</p>
-          <p class="DateOfPost"><%=(new Date(e.currentDate)).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })%></p>
+        <div class="ratingAndDateOfPost">
+          <p class="starability-result" data-rating="<%=e.rating%>"></p>
         </div>
         <p class="commentInReviewCard"><%=e.comment%></p>
-        <form method="post" action="/listings/<%= data._id %>/review/<%=e._id%>?_method=DELETE"">
-          <button class="b2 DetailButton" >Delete Review</button>
-        </form>
+        <%if(currUser && e.owner &&  currUser._id.equals(e.owner._id)){%>
+          <form method="post" action="/listings/<%= data._id %>/review/<%=e._id%>?_method=DELETE"">
+            <button class="b2 DetailButton" >Delete Review</button>
+          </form>
+        <%}%>
       </div>
     <%})%>
 

@@ -60,18 +60,30 @@
 
 }
 .ProfileImageForCard{
-    height: 2.2rem;
-    width: 2.2rem;
+    height: 3rem;
+    width: 3rem;
     border: 1px solid black;
     border-radius: 10rem;
 }
 .UserNameInReviewCard{
-    font-size: larger;
-    font-weight: 600;
+    font-weight: 600; 
+    margin: 0;
 }
 .flexRow{
     display: flex;
     gap: 0.5rem;
+}
+.userNameAndDate{
+    display: flex;
+    flex-direction: column;
+}
+.userNameAndProfile{
+    height: 3.3rem;
+}
+.commentInReviewCard{
+    height: 5.5rem;
+    overflow:scroll;
+    scrollbar-width: none;
 }
 @media screen and (max-width:774px) {
     .upperContainer{

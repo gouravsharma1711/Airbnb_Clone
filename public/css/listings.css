@@ -11,23 +11,27 @@
     text-decoration: none;
     color: black;
 }
+.card-body{
+  background-color: white;
+}
 #listingsCard{
-    height: 100% !important;
-    width: 100% !important;
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: 100% !important;
+  width: 100% !important;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+}
+
+#listingsCard:hover #allListingsImages {
+  transform: scale(1.2);
+}
+#listingsCard:hover{
+  border:2px solid blue;
 }
 #randomdiv{
   overflow: hidden;
 }
 #allListingsImages{
   transition: all 1s ease;
-}
-#listingsCard:hover #allListingsImages {
-    transform: scale(1.2);
-}
-#listingsCard:hover{
-  border: 2px solid blue;
 }
 .pagesList{
   width: 100%;

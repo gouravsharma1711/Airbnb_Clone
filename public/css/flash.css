@@ -1,0 +1,16 @@
+.flashClass {
+    position: absolute;
+    top: 0rem;
+    z-index: 1;
+    animation: flashAnimation 1.2s ease forwards;
+    transition: all 1.2s ease;
+}
+
+@keyframes flashAnimation {
+    from {
+        top: 0rem;
+    }
+    to {
+        top: 6rem;
+    }
+}

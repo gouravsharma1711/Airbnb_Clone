@@ -2,7 +2,7 @@
 <body>
   <br>
     <h2>Create a New Listing</h2>
-    <form method="post" action="/listings/create" class="row g-3 needs-validation" novalidate>
+    <form method="post" action="/listings/create" class="row g-3 needs-validation" novalidate enctype="multipart/form-data">
         <div class="col-md-6">
           <label for="inoutTitle" class="form-label" >Title</label>
           <input type="text" name="title" required  class="form-control" id="inoutTitle" value="" placeholder="e.g., Cozy Cottage in the Heart of the City" >
@@ -16,8 +16,8 @@
           <div class="invalid-feedback">Price Should be Valid</div>
         </div>
         <div class="col-12">
-          <label for="inputImageUrl" class="form-label">Image Url</label>
-          <input type="text" name="image" class="form-control" id="inputImageUrl" placeholder="Image Url">
+          <label for="inputImageUrl" class="form-label">Upload Listing Image</label>
+          <input type="file" name="image" class="form-control" id="inputImageUrl">
         </div>
         <div class="col-12">
           <label for="inputDescription" class="form-label">Description</label>
@@ -44,4 +44,5 @@
         </div>
       </form>
 </body>
+<br>
 <script src="/js/edit.js"></script>

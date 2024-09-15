@@ -1,0 +1,85 @@
+<%- layout('./layout/boilerPlate.ejs') %>
+
+<body >
+  <br>
+    <div style="display: flex; flex-direction: column;align-items: center ; ">
+        <form method="post" action="/users/signup" class="row col-md-6 g-2 needs-validation" novalidate enctype="multipart/form-data" style=" padding: 10px; border-radius: 10px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;" >
+          <h3>User Sign Up</h3>
+          <hr>
+          <div class="col-md-12">
+
+            <div class="file-upload">
+              <label for="profilePic" class="custom-file-upload">
+                <img id="preview" src="https://res.cloudinary.com/dcs7eq5kf/image/upload/q_50/v1726344934/profile_crs2ac.jpg" alt="Profile Pic" class="profile-pic"/>
+                <div class="choose-file-text">Choose File</div>
+              </label>
+              <input type="file" name="profilePic" class="form-control" id="profilePic" accept="image/*">
+            </div>
+            <label for="profilePic" class="form-label-profile">Profile Pic</label>
+        </div>
+
+            <div>
+                <label for="userId" class="form-label" >UserName</label>
+              <div class="input-group col-mb-6">
+                  <span class="input-group-text" id="basic-addon1" style="border: 1px solid gray;">@</span>
+                  <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="userId">
+                </div>
+            </div>
+  
+            <div class="col-md-6">
+              <label for="firstName" class="form-label" >First Name</label>
+              <input type="text" name="firstName" class="form-control" id="firstName" placeholder="John" required>
+            </div>
+  
+            
+            <div class="col-md-6">
+                
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" name="lastName" class="form-control" id="lastName" placeholder="sharma">
+              </div>
+              
+             <div>
+                 <label for="UserEmail" class="form-label" >Email</label>
+              <div class="input-group mb-3">
+                  <input type="email" name="email" required  class="form-control" id="UserEmail" placeholder="eg. abc@gamil.com" >
+                  <span class="input-group-text" id="basic-addon2" style="border: 1px solid grey;">@example.com</span>
+              </div>
+             </div>
+  
+            <div class="col-md-6">
+              <label for="phoneNumber" class="form-label">Mobie Number</label>
+              <input type="text" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="8575xxxxxx"required>
+            </div>
+  
+            <div class="col-md-6">
+              <label for="dob" class="form-label">Date Of Birth</label>
+              <input type="date" name="dob" class="form-control" id="dob" required>
+            </div>
+      
+            
+  
+            <div class="col-md-12">
+              <label for="Password" class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" placeholder="Password" id="Password">
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
+          </form>
+      </div>
+  </body>
+  <script>
+        const profilePicInput = document.getElementById('profilePic');
+    const previewImage = document.getElementById('preview');
+    profilePicInput.addEventListener('change', function(event) {
+        const file = event.target.files[0]; 
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImage.src = e.target.result; 
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    
+  </script>

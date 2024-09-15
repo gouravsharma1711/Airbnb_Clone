@@ -1,0 +1,33 @@
+<%- layout('./layout/boilerPlate.ejs') %>
+<body>
+    <br>
+    <div class="logInTopMostDiv">
+        <div class="logInUpperDiv col-md-5">
+            <h2 style="text-align: center;">Log In</h2>
+            <form method="post" action="/users/login" class="row g-3 needs-validation" novalidate>
+      
+                <div class="md-3">
+                  <label for="username" class="form-label" >User Name</label>
+                  <input type="text" name="username" class="form-control" id="username" placeholder="Username" required>
+                </div>
+                <div class="md-3">
+                  <label for="password" class="form-label" >Password</label>
+                  <input type="Password" name="password" class="form-control" id="password" placeholder="password" required>
+                </div>
+                <button class="btn LoginButton">Log in</button>
+            </form>
+            <br>
+            <a href="/users/signup"><button class="btn SignUpButton">Sign Up</button></a>
+            <hr>
+            <div class="otherSignUpOptions">
+                <p class="options">Or Sign Up Using </p>
+                <div class="signUpIcon">
+                    <div class="google SignUpicons"><i class="fa-brands fa-google"></i></div>
+                    <div class="linkedIn SignUpicons"><i class="fa-brands fa-linkedin"></i></div>
+                    <div class="x SignUpicons"><i class="fa-brands fa-x-twitter"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/js/edit.js"></script>

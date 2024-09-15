@@ -7,12 +7,8 @@
       <a class="cardLink" href="/listings/<%= listingsdata[i]._id %>">
         <div class="card" id="listingsCard" style="width: 18rem;">
             <div id="randomdiv">
-              <img id="allListingsImages" src="<%= `${listingsdata[i].image}?q_auto,f_auto` %>" 
-                srcset="<%= `${listingsdata[i].image}?q_auto,f_auto,w_400` %> 400w, 
-             <%= `${listingsdata[i].image}?q_auto,f_auto,w_800` %> 800w" 
-              sizes="(max-width: 600px) 400px, 800px" 
-               loading="lazy" 
-              class="card-img-top">
+              <img id="allListingsImages" src="<%= listingsdata[i].image.url.replace('/Upload','/Upload/q_30,h_150,w_125') %>" loading="lazy" width="125" height="150" class="card-img-top">
+
             </div>
             <div class="card-body">
               <h5 class="card-title"><%= listingsdata[i].title %></h5>
@@ -24,6 +20,7 @@
       
 </div>
 <br>
+<%if(pageNo>1){%>
 <div class="pagesList">
 
   <%if(pageNo>1){%>
@@ -44,6 +41,7 @@
       </a>
       <%}%>
  </div>
+ <%}%>
  <script>
   document.querySelector("#pageNumbers").addEventListener('click',(e)=>{
       let currentPage=e.target.innerText;

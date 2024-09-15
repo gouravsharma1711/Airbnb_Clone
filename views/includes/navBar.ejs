@@ -1,3 +1,6 @@
+<style>
+ 
+</style>
 <body>
     <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
         <div class="container-fluid">
@@ -13,7 +16,18 @@
               <a class="nav-link" href="/listings/page/1">All Listings</a>
               <a class="nav-link" href="/listings/create">Create New Listing</a>
             </div>
+            <hr>
+            <div class="navbar-nav ms-auto auth" > 
+              <% if (!currUser) { %> 
+                <a class="authButtons logIn" href="/users/login" >Log In</a>
+                <a class="authButtons SignUp " href="/users/signup" >Sign Up</a>
+              <% } else { %>
+                  <a class="authButtons logOut" href="/users/logout">Log Out</a>
+              <% } %>
           </div>
+          <hr>
+          </div>
+          
         </div>
       </nav>
 </body>

@@ -1,0 +1,65 @@
+.logInTopMostDiv{
+    display: flex;
+    justify-content: center;
+}
+.logInUpperDiv{
+    border: 0.5px solid grey;
+    border-radius: 10px;
+    padding: 1rem;
+    padding-bottom: 3rem;
+}
+.LoginButton{
+    width: 97%;
+    background-color: #0d6efd;
+    color: white;
+    font-size: large;
+    font-weight: 600;
+    margin:1.5rem 8px 0 8px;
+}
+.SignUpButton{
+    width: 100%;
+    background-color: violet;
+    color: white;
+    font-size: large;
+    font-weight: 600;
+}
+.LoginButton:hover{
+    background-color: #0d58c9;
+    color: white;
+}
+.SignUpButton:hover{
+    background-color: rgb(197, 51, 197);
+    color: white;
+}
+.otherSignUpOptions{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+.signUpIcon{
+    display: flex;
+    gap: 1rem;
+}
+.SignUpicons{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    cursor: pointer;
+    border: 0.5px solid grey;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.google{
+    background: linear-gradient(90deg, #4285F4 25%, #EA4335 25%, #FBBC05 50%, #34A853 50%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.options{
+    font-size: larger;
+    font-weight: 600;
+    color: gray;
+}
