@@ -1,5 +1,57 @@
 <%- layout('./layout/boilerPlate.ejs') %>
+<style>
+.file-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 150px; 
+    height: 150px; 
+    margin: 0 auto; 
+}
 
+.custom-file-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #ccc; 
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover; 
+}
+
+.choose-file-text {
+    position: absolute;
+    bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.6); 
+    color: white;
+    padding: 5px;
+    border-radius: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#profilePic{
+    display: none; 
+}
+
+.form-label-profile {
+    margin-bottom: 10px;
+    display: block;
+    text-align: center; 
+}
+</style>
 <body >
   <br>
     <div style="display: flex; flex-direction: column;align-items: center ; ">
